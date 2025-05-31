@@ -22,23 +22,25 @@ function Tech() {
   ];
 
   return (
-    <>
-      <div className="flex mt-10">
-        <div className="font-black text-xl">What I Work With</div>
+    <div className="mt-10 px-4">
+      <div className="font-black text-xl text-center md:text-left mb-6">
+        What I Work With
       </div>
-
-      <div className="flex mt-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-4xl">
-          {techStack.map((tech, index) => (
-            <div key={index} className="flex flex-col items-center">
-              {tech.icon}
-              <p className="mt-1">{tech.label}</p>
-            </div>
-          ))}
-        </div>
+  
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 max-w-5xl mx-auto md:mx-0">
+        {techStack.map((tech, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+          >
+            {tech.icon}
+            <p className="mt-1 text-sm sm:text-base text-center">{tech.label}</p>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
+  
 }
 
 export default Tech;
