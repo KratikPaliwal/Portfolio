@@ -15,9 +15,8 @@ function Connect() {
     const subject = `New message from ${name}`;
     const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
     const mailtoLink = `mailto:kratikpaliwal1@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-    window.location.href = mailtoLink;
     window.open("https://www.linkedin.com/in/kratikpaliwal/", "_blank");
+    window.location.href = mailtoLink;
 
   };
 
