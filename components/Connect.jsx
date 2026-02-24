@@ -22,45 +22,45 @@ function Connect() {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div className="flex flex-col mb-16 space-y-4">
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+      <div className="flex flex-col mb-12 space-y-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
           Let's Start a <span className="text-gradient">Conversation</span>
         </h2>
-        <p className="text-gray-400 max-w-xl text-lg">
+        <p className="text-gray-400 max-w-xl text-base md:text-lg">
           Whether you have a specific project in mind or just want to
           explore possibilities, I'm always open to new connections.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5 space-y-6">
-          <div className="glass-card p-8 rounded-[2rem] flex items-center gap-6 group">
-            <div className="p-4 rounded-2xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform">
-              <FiMail fontSize={28} />
+        <div className="lg:col-span-5 space-y-4">
+          <div className="glass-card p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] flex items-center gap-4 sm:gap-6 group">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform shrink-0">
+              <FiMail fontSize={22} />
             </div>
-            <div>
-              <h4 className="font-bold text-xl text-white">Email</h4>
-              <p className="text-gray-400">kratikpaliwal1@gmail.com</p>
-            </div>
-          </div>
-
-          <div className="glass-card p-8 rounded-[2rem] flex items-center gap-6 group">
-            <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-400 group-hover:scale-110 transition-transform">
-              <FiMapPin fontSize={28} />
-            </div>
-            <div>
-              <h4 className="font-bold text-xl text-white">Location</h4>
-              <p className="text-gray-400">Madhya Pradesh, India 🇮🇳</p>
+            <div className="min-w-0">
+              <h4 className="font-bold text-base sm:text-xl text-white">Email</h4>
+              <p className="text-gray-400 text-sm truncate">kratikpaliwal1@gmail.com</p>
             </div>
           </div>
 
-          <div className="glass-card p-8 rounded-[2rem] flex items-center gap-6 group">
-            <div className="p-4 rounded-2xl bg-pink-500/10 text-pink-400 group-hover:scale-110 transition-transform">
-              <FiClock fontSize={28} />
+          <div className="glass-card p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] flex items-center gap-4 sm:gap-6 group">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-500/10 text-blue-400 group-hover:scale-110 transition-transform shrink-0">
+              <FiMapPin fontSize={22} />
             </div>
             <div>
-              <h4 className="font-bold text-xl text-white">Working Hours</h4>
-              <p className="text-gray-400">Mon - Fri, 9AM - 6PM IST</p>
+              <h4 className="font-bold text-base sm:text-xl text-white">Location</h4>
+              <p className="text-gray-400 text-sm">Madhya Pradesh, India 🇮🇳</p>
+            </div>
+          </div>
+
+          <div className="glass-card p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] flex items-center gap-4 sm:gap-6 group">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-pink-500/10 text-pink-400 group-hover:scale-110 transition-transform shrink-0">
+              <FiClock fontSize={22} />
+            </div>
+            <div>
+              <h4 className="font-bold text-base sm:text-xl text-white">Working Hours</h4>
+              <p className="text-gray-400 text-sm">Mon - Fri, 9AM - 6PM IST</p>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@ function Connect() {
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="lg:col-span-7 space-y-6 bg-white/[0.02] p-8 md:p-12 rounded-[3rem] border border-white/5"
+          className="lg:col-span-7 space-y-5 bg-white/[0.02] p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3rem] border border-white/5"
           onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

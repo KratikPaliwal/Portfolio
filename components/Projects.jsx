@@ -42,11 +42,11 @@ function Projects() {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div className="text-center mb-16 space-y-4">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+      <div className="text-center mb-12 space-y-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
           Featured <span className="text-gradient">Projects</span>
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
           Detailed technical implementations ranging from machine learning
           research to production-ready mobile applications.
         </p>
@@ -84,7 +84,7 @@ function Projects() {
             </div>
 
             {/* Content Area */}
-            <div className="p-10 flex flex-col flex-1">
+            <div className="p-6 sm:p-8 md:p-10 flex flex-col flex-1">
               <div className="flex flex-wrap gap-2 mb-6">
                 {proj.tags.map(tag => (
                   <span key={tag} className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/10 text-purple-400 text-[10px] font-bold uppercase tracking-widest leading-none">
