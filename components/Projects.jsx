@@ -87,18 +87,18 @@ function Projects() {
             <div className="p-6 sm:p-8 md:p-10 flex flex-col flex-1">
               <div className="flex flex-wrap gap-2 mb-6">
                 {proj.tags.map(tag => (
-                  <span key={tag} className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/10 text-purple-400 text-[10px] font-bold uppercase tracking-widest leading-none">
+                  <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 border border-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest leading-none">
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors tracking-tight">
+              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors tracking-tight">
                 {proj.title}
               </h3>
 
               {proj.guide && (
-                <p className="text-purple-400/60 text-xs font-semibold uppercase tracking-widest mb-4">
+                <p className="text-primary/60 text-xs font-semibold uppercase tracking-widest mb-4">
                   Guide: {proj.guide}
                 </p>
               )}

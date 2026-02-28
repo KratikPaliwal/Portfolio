@@ -4,9 +4,7 @@ import About from '../components/About'
 import Tech from '../components/Tech'
 import Experience from '../components/Experience'
 import Projects from '../components/Projects'
-import Achievements from '../components/Achievements'
 import Connect from '../components/Connect'
-import CustomCursor from '../components/CustomCursor'
 import { motion, useScroll, useSpring } from 'framer-motion'
 
 function App() {
@@ -18,15 +16,13 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-mesh selection:bg-purple-500/30 overflow-x-hidden" style={{ cursor: 'none' }}>
+    <div className="min-h-screen bg-mesh selection:bg-purple-500/30 overflow-x-hidden">
 
       {/* Grain / Noise Overlay */}
       <div className="grain-overlay" />
 
-      {/* Custom Cursor */}
-      <CustomCursor />
-
       {/* Scroll Progress Bar */}
+
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 z-[100] origin-left"
         style={{ scaleX }}
@@ -49,10 +45,6 @@ function App() {
 
         <section id="projects">
           <Projects />
-        </section>
-
-        <section id="achievements">
-          <Achievements />
         </section>
 
         <section id="connect">

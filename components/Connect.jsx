@@ -35,7 +35,7 @@ function Connect() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5 space-y-4">
           <div className="glass-card p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] flex items-center gap-4 sm:gap-6 group">
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform shrink-0">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform shrink-0">
               <FiMail fontSize={22} />
             </div>
             <div className="min-w-0">
@@ -55,7 +55,7 @@ function Connect() {
           </div>
 
           <div className="glass-card p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] flex items-center gap-4 sm:gap-6 group">
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-pink-500/10 text-pink-400 group-hover:scale-110 transition-transform shrink-0">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-secondary/10 text-secondary group-hover:scale-110 transition-transform shrink-0">
               <FiClock fontSize={22} />
             </div>
             <div>
@@ -77,7 +77,7 @@ function Connect() {
               <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-2">Full Name</label>
               <input
                 type="text"
-                className="w-full bg-black/40 border border-white/10 p-5 rounded-2xl text-white focus:outline-none focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10 transition-all placeholder:text-gray-600"
+                className="w-full bg-black/40 border border-white/10 p-5 rounded-2xl text-white focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-gray-600"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="John Doe"
@@ -88,7 +88,7 @@ function Connect() {
               <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-2">Email Address</label>
               <input
                 type="email"
-                className="w-full bg-black/40 border border-white/10 p-5 rounded-2xl text-white focus:outline-none focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10 transition-all placeholder:text-gray-600"
+                className="w-full bg-black/40 border border-white/10 p-5 rounded-2xl text-white focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-gray-600"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="john@example.com"
@@ -99,7 +99,7 @@ function Connect() {
           <div className="space-y-3">
             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-2">Your Message</label>
             <textarea
-              className="w-full bg-black/40 border border-white/10 p-5 rounded-3xl text-white focus:outline-none focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/10 transition-all resize-none placeholder:text-gray-600"
+              className="w-full bg-black/40 border border-white/10 p-5 rounded-3xl text-white focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all resize-none placeholder:text-gray-600"
               rows={6}
               value={message}
               onChange={(e) => setMessage(e.target.value)}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiArrowRight, FiCpu, FiCode, FiLayers, FiDownload } from "react-icons/fi";
+import { FiArrowRight, FiCpu, FiCode, FiLayers, FiDownload, FiMail } from "react-icons/fi";
 
 const titles = [
-  { text: "Intelligent Interfaces", icon: <FiCpu className="text-purple-400" /> },
+  { text: "Intelligent Interfaces", icon: <FiCpu className="text-primary" /> },
   { text: "Full Stack Solutions", icon: <FiCode className="text-blue-400" /> },
-  { text: "AI-Powered Systems", icon: <FiLayers className="text-pink-400" /> },
+  { text: "AI-Powered Systems", icon: <FiLayers className="text-secondary" /> },
 ];
 
 function About() {
@@ -37,8 +37,8 @@ function About() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-6"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
           </span>
           Based in India 🇮🇳
         </motion.div>
@@ -93,7 +93,7 @@ function About() {
             download="Kratik_Paliwal_Resume.pdf"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 font-bold text-sm flex items-center justify-center gap-2 hover:bg-purple-500/20 hover:border-purple-400/60 hover:text-purple-200 transition-all"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-primary/40 bg-primary/10 text-primary font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/20 hover:border-primary/60 hover:text-white transition-all"
           >
             <FiDownload className="text-base" />
             Download CV
@@ -117,6 +117,12 @@ function About() {
             >
               <FaLinkedin className="text-lg" />
             </a>
+            <a
+              href="mailto:kratikpaliwal1@gmail.com"
+              className="p-3.5 rounded-full glass hover:bg-white/5 hover:text-white transition-all border border-white/5"
+            >
+              <FiMail className="text-lg" />
+            </a>
           </div>
         </div>
       </motion.div>
@@ -128,7 +134,7 @@ function About() {
         transition={{ duration: 1, type: "spring" }}
         className="relative group shrink-0 order-first lg:order-last"
       >
-        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-[3rem] blur-3xl opacity-10 group-hover:opacity-20 transition-opacity" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[3rem] blur-3xl opacity-10 group-hover:opacity-20 transition-opacity" />
         <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-white/10 p-2 sm:p-2.5 glass">
           <img
             src="Images/profile.jpeg"
@@ -137,22 +143,7 @@ function About() {
           />
         </div>
 
-        {/* Floating badge */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-5 -left-5 sm:-bottom-6 sm:-left-6 md:-left-10 glass px-4 sm:px-6 py-3 sm:py-5 rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 shadow-2xl"
-        >
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
-              <FiCpu className="text-purple-400 text-lg sm:text-xl" />
-            </div>
-            <div>
-              <div className="text-base sm:text-xl font-black text-white leading-none">ALIOE</div>
-              <div className="text-[8px] sm:text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Core Engine</div>
-            </div>
-          </div>
-        </motion.div>
+        {/* Floating elements removed per user request */}
       </motion.div>
 
     </div>

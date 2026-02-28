@@ -7,7 +7,6 @@ const navItems = [
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#portfolio" },
   { name: "Projects", href: "#projects" },
-  { name: "Awards", href: "#achievements" },
   { name: "Connect", href: "#connect" },
 ];
 
@@ -63,7 +62,7 @@ function Header() {
                 : "bg-white/[0.03] backdrop-blur-md border border-white/5"
             )}
           >
-            KP<span className="text-purple-400">.</span>
+            KP<span className="text-primary">.</span>
           </div>
 
           {/* Hamburger button */}
@@ -137,7 +136,7 @@ function Header() {
                       className="flex items-center justify-between px-5 py-4 rounded-2xl text-gray-300 hover:text-white hover:bg-white/5 active:bg-white/10 transition-all text-base font-semibold group"
                     >
                       {item.name}
-                      <span className="text-gray-600 group-hover:text-purple-400 transition-colors">→</span>
+                      <span className="text-gray-600 group-hover:text-primary transition-colors">→</span>
                     </a>
                   </motion.li>
                 ))}
@@ -149,7 +148,7 @@ function Header() {
                   href="/resume.pdf"
                   download="Kratik_Paliwal_Resume.pdf"
                   onClick={closeMenu}
-                  className="flex-1 py-3 rounded-2xl bg-purple-500/15 border border-purple-500/30 text-purple-300 text-sm font-bold text-center hover:bg-purple-500/25 transition-all"
+                  className="flex-1 py-3 rounded-2xl bg-primary/15 border border-primary/30 text-primary text-sm font-bold text-center hover:bg-primary/25 transition-all"
                 >
                   ↓ Download CV
                 </a>
