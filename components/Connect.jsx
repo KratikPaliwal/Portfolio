@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FiMail, FiSend, FiUser, FiMapPin, FiClock } from "react-icons/fi";
+import { FiMail, FiSend, FiUser, FiMapPin } from "react-icons/fi";
 
 function Connect() {
   const [name, setName] = useState("");
@@ -54,22 +54,13 @@ function Connect() {
             </div>
           </div>
 
-          <div className="glass-card p-5 sm:p-7 rounded-[1.5rem] sm:rounded-[2rem] flex items-center gap-4 sm:gap-6 group">
-            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-secondary/10 text-secondary group-hover:scale-110 transition-transform shrink-0">
-              <FiClock fontSize={22} />
-            </div>
-            <div>
-              <h4 className="font-bold text-base sm:text-xl text-white">Working Hours</h4>
-              <p className="text-gray-400 text-sm">Mon - Fri, 9AM - 6PM IST</p>
-            </div>
-          </div>
         </div>
 
         <motion.form
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="lg:col-span-7 space-y-5 bg-white/[0.02] p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3rem] border border-white/5"
+          className="lg:col-span-7 space-y-5 bg-white/[0.018] p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3rem] border border-white/[0.06]"
           onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

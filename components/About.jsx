@@ -71,10 +71,7 @@ function About() {
 
         {/* Bio */}
         <p className="max-w-xl text-gray-400 text-sm sm:text-base md:text-lg mb-8 leading-relaxed mx-auto lg:mx-0 px-2 lg:px-0">
-          Crafting sophisticated software at the intersection of
-          <span className="text-white font-medium"> Machine Learning</span> and
-          <span className="text-white font-medium"> Modern Frontend</span>.
-          Expertise in building scalable, AI-driven automation systems.
+          I build <span className="text-white font-medium">web apps</span> and <span className="text-white font-medium">ML systems</span> that are fast, clean, and actually useful.
         </p>
 
         {/* CTA Buttons */}
@@ -140,6 +137,8 @@ function About() {
             src="Images/profile.jpeg"
             className="w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-[2rem] sm:rounded-[2.2rem] grayscale-[15%] group-hover:grayscale-0 transition-all duration-700"
             alt="Kratik Paliwal"
+            loading="eager"
+            decoding="async"
           />
         </div>
 

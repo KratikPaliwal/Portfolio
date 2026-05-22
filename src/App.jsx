@@ -16,7 +16,7 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-mesh selection:bg-purple-500/30 overflow-x-hidden">
+    <div className="min-h-screen bg-mesh selection:bg-indigo-500/25">
 
       {/* Grain / Noise Overlay */}
       <div className="grain-overlay" />
@@ -24,7 +24,7 @@ function App() {
       {/* Scroll Progress Bar */}
 
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 z-[100] origin-left"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 via-violet-400 to-cyan-400 z-[100] origin-left"
         style={{ scaleX }}
       />
 
@@ -60,7 +60,7 @@ function App() {
               href="https://github.com/KratikPaliwal"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors hover:text-purple-400"
+              className="hover:text-white transition-colors hover:text-indigo-400"
             >
               GitHub
             </a>
@@ -74,7 +74,7 @@ function App() {
             </a>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="hover:text-purple-400 transition-colors"
+              className="hover:text-indigo-400 transition-colors"
             >
               ↑ Back to Top
             </button>

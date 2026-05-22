@@ -120,7 +120,7 @@ function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-              className="fixed top-24 left-4 right-4 z-[95] md:hidden bg-[#0c0c0f]/95 border border-white/10 rounded-[2rem] p-6 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9)]"
+              className="fixed top-24 left-4 right-4 z-[95] md:hidden bg-[#0a0d1a]/95 border border-white/10 rounded-[2rem] p-6 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9)]"
             >
               <ul className="flex flex-col gap-2">
                 {navItems.map((item, i) => (
