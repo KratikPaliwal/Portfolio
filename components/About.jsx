@@ -34,18 +34,18 @@ function About() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-6"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-50 border border-zinc-200 text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-6"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
           </span>
-          Based in India 🇮🇳
+          Based in India
         </motion.div>
 
         {/* Name */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight tracking-tight text-white">
-          Hi, I'm <span className="text-gradient">Kratik</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight tracking-tight text-zinc-900">
+          Hi, I'm Kratik
         </h1>
 
         {/* Animated subtitle */}
@@ -59,10 +59,10 @@ function About() {
               transition={{ duration: 0.5, ease: "circOut" }}
               className="flex items-center gap-3"
             >
-              <div className="p-2.5 sm:p-3 rounded-2xl bg-white/[0.03] border border-white/5 text-xl sm:text-2xl shrink-0">
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-zinc-50 border border-zinc-200 text-xl sm:text-2xl shrink-0">
                 {titles[index].icon}
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-200">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-zinc-700">
                 {titles[index].text}
               </h2>
             </motion.div>
@@ -70,8 +70,8 @@ function About() {
         </div>
 
         {/* Bio */}
-        <p className="max-w-xl text-gray-400 text-sm sm:text-base md:text-lg mb-8 leading-relaxed mx-auto lg:mx-0 px-2 lg:px-0">
-          I build <span className="text-white font-medium">web apps</span> and <span className="text-white font-medium">ML systems</span> that are fast, clean, and actually useful.
+        <p className="max-w-xl text-zinc-500 text-sm sm:text-base md:text-lg mb-8 leading-relaxed mx-auto lg:mx-0 px-2 lg:px-0">
+          I build <span className="text-zinc-900 font-medium">web apps</span> and <span className="text-zinc-900 font-medium">ML systems</span> that are fast, clean, and actually useful.
         </p>
 
         {/* CTA Buttons */}
@@ -80,7 +80,7 @@ function About() {
             href="#projects"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-100 transition-all btn-glow"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-zinc-900 text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-zinc-800 transition-all btn-glow"
           >
             My Work <FiArrowRight />
           </motion.a>
@@ -90,7 +90,7 @@ function About() {
             download="Kratik_Paliwal_Resume.pdf"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-primary/40 bg-primary/10 text-primary font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/20 hover:border-primary/60 hover:text-white transition-all"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-primary/30 bg-primary/5 text-primary font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/10 hover:border-primary/50 transition-all"
           >
             <FiDownload className="text-base" />
             Download CV
@@ -102,7 +102,7 @@ function About() {
               href="https://github.com/KratikPaliwal"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3.5 rounded-full glass hover:bg-white/5 hover:text-white transition-all border border-white/5"
+              className="p-3.5 rounded-full glass hover:bg-zinc-900/5 hover:text-zinc-900 text-zinc-600 transition-all"
             >
               <FaGithub className="text-lg" />
             </a>
@@ -110,13 +110,13 @@ function About() {
               href="https://www.linkedin.com/in/kratikpaliwal/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3.5 rounded-full glass hover:bg-white/5 hover:text-white transition-all border border-white/5"
+              className="p-3.5 rounded-full glass hover:bg-zinc-900/5 hover:text-zinc-900 text-zinc-600 transition-all"
             >
               <FaLinkedin className="text-lg" />
             </a>
             <a
               href="mailto:kratikpaliwal1@gmail.com"
-              className="p-3.5 rounded-full glass hover:bg-white/5 hover:text-white transition-all border border-white/5"
+              className="p-3.5 rounded-full glass hover:bg-zinc-900/5 hover:text-zinc-900 text-zinc-600 transition-all"
             >
               <FiMail className="text-lg" />
             </a>
@@ -131,8 +131,8 @@ function About() {
         transition={{ duration: 1, type: "spring" }}
         className="relative group shrink-0 order-first lg:order-last"
       >
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[3rem] blur-3xl opacity-10 group-hover:opacity-20 transition-opacity" />
-        <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-white/10 p-2 sm:p-2.5 glass">
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[3rem] blur-3xl opacity-[0.07] group-hover:opacity-[0.14] transition-opacity" />
+        <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-zinc-200 p-2 sm:p-2.5 bg-white shadow-xl shadow-zinc-900/5">
           <img
             src="Images/profile.jpeg"
             className="w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-[2rem] sm:rounded-[2.2rem] grayscale-[15%] group-hover:grayscale-0 transition-all duration-700"

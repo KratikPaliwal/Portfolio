@@ -20,7 +20,7 @@ const techStack = [
   { icon: <SiDart />,        label: "Dart",       color: "#0175c2" },
   { icon: <SiCplusplus />,   label: "C++",        color: "#9c7fd4" },
   { icon: <SiGit />,         label: "Git",        color: "#f05032" },
-  { icon: <SiGithub />,      label: "GitHub",     color: "#e2e8f0" },
+  { icon: <SiGithub />,      label: "GitHub",     color: "#18181b" },
 ];
 
 const container = {
@@ -43,23 +43,21 @@ function Tech() {
         viewport={{ once: true }}
         className="text-center mb-14"
       >
-        <span className="section-label">Skills</span>
-        <h2 className="text-3xl md:text-5xl font-bold mb-3">
-          My <span className="text-gradient">Stack</span>
+        <h2 className="text-3xl md:text-5xl font-bold mb-3 text-zinc-900">
+          My Stack
         </h2>
-        <p className="text-gray-500 max-w-sm mx-auto text-sm">
+        <p className="text-zinc-500 max-w-sm mx-auto text-sm">
           Tools I use to build things that actually work.
         </p>
       </motion.div>
 
-      {/* 2-row grid: 7 columns × 2 rows = 14 cards */}
+      {/* Responsive grid: 3 cols mobile, 4 cols tablet, 7 cols desktop (2 rows × 14 cards) */}
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        style={{ gridTemplateColumns: "repeat(7, minmax(0, 1fr))" }}
-        className="grid gap-4"
+        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4"
       >
         {techStack.map((tech, index) => (
           <motion.div
@@ -79,7 +77,7 @@ function Tech() {
 
             {/* Label */}
             <p
-              className="text-[10px] font-semibold text-gray-500 group-hover:text-gray-300 transition-colors tracking-wider text-center"
+              className="text-[10px] font-semibold text-zinc-400 group-hover:text-zinc-600 transition-colors tracking-wider text-center"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               {tech.label}

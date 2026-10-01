@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6366f1;
-  /* Electric Indigo  */
-  --color-secondary: #22d3ee;
-  /* Cyan             */
-  --color-accent: #818cf8;
-  /* Soft Indigo      */
+  --color-primary: #4338ca;
+  /* Indigo 700 — confident, single accent */
+  --color-secondary: #4f46e5;
+  /* Indigo 600 — tonal variant for gradients */
+  --color-accent: #6366f1;
+  /* Indigo 500 — lightest tonal variant */
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -18,9 +18,9 @@
   line-height: 1.65;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: #e2e8f0;
-  background-color: #07090f;
+  color-scheme: light;
+  color: #27272a;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,89 +33,68 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: #07090f;
+  background-color: #ffffff;
 }
 
-/* ─── Aurora Background ─────────────────────────────────────────────── */
+/* ─── Soft Background Wash ──────────────────────────────────────────── */
 .bg-mesh {
-  background-color: #07090f;
+  background-color: #ffffff;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.14), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(34, 211, 238, 0.07), transparent),
-    radial-gradient(ellipse 50% 50% at 0% 50%, rgba(129, 140, 248, 0.04), transparent);
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(67, 56, 202, 0.05), transparent),
+    radial-gradient(ellipse 50% 35% at 85% 10%, rgba(99, 102, 241, 0.035), transparent);
   position: relative;
-}
-
-.bg-mesh::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background:
-    radial-gradient(ellipse 650px 650px at 20% 30%, rgba(99, 102, 241, 0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 550px 550px at 80% 70%, rgba(34, 211, 238, 0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 450px 450px at 60% 10%, rgba(129, 140, 248, 0.04) 0%, transparent 70%);
-  animation: aurora 28s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes aurora {
-  0% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-
-  33% {
-    transform: translate(3%, 5%) rotate(1deg) scale(1.04);
-  }
-
-  66% {
-    transform: translate(-2%, 3%) rotate(-1deg) scale(0.98);
-  }
-
-  100% {
-    transform: translate(2%, -1%) rotate(2deg) scale(1.03);
-  }
 }
 
 /* ─── Glass Variants ────────────────────────────────────────────────── */
 .glass {
-  background: rgba(8, 10, 18, 0.65);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(99, 102, 241, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(24, 24, 27, 0.08);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.018);
+  background: #ffffff;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: 0 1px 2px rgba(24, 24, 27, 0.04);
   transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .glass-card:hover {
-  background: rgba(99, 102, 241, 0.04);
-  border-color: rgba(99, 102, 241, 0.22);
-  transform: translateY(-6px);
+  border-color: rgba(67, 56, 202, 0.25);
+  transform: translateY(-4px);
   box-shadow:
-    0 32px 64px -16px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(99, 102, 241, 0.06) inset,
-    0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    0 24px 48px -16px rgba(24, 24, 27, 0.12),
+    0 0 0 1px rgba(67, 56, 202, 0.05) inset;
+}
+
+/* ─── Tech Stack Card ───────────────────────────────────────────────── */
+.tech-card {
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: 0 1px 2px rgba(24, 24, 27, 0.04);
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tech-card:hover {
+  border-color: var(--card-glow, rgba(67, 56, 202, 0.3));
+  box-shadow:
+    0 20px 40px -20px var(--card-glow, rgba(67, 56, 202, 0.25)),
+    0 1px 2px rgba(24, 24, 27, 0.04);
 }
 
 /* ─── Gradient Text ─────────────────────────────────────────────────── */
 .text-gradient {
-  background: linear-gradient(125deg, #ffffff 0%, #818cf8 40%, #22d3ee 100%);
+  background: linear-gradient(125deg, #18181b 0%, #4338ca 55%, #6366f1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-subtle {
-  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -131,11 +110,11 @@ body {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #818cf8;
+  color: var(--color-primary);
   padding: 5px 14px;
   border-radius: 999px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: rgba(67, 56, 202, 0.06);
+  border: 1px solid rgba(67, 56, 202, 0.16);
   margin-bottom: 20px;
 }
 
@@ -184,37 +163,22 @@ body {
   }
 }
 
-/* ─── Noise Grain Overlay ───────────────────────────────────────────── */
-.grain-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.022;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px;
-}
-
 /* ─── Scrollbar ─────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050710;
+  background: #f4f4f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(99, 102, 241, 0.5), rgba(34, 211, 238, 0.3));
+  background: linear-gradient(180deg, rgba(67, 56, 202, 0.5), rgba(99, 102, 241, 0.3));
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(99, 102, 241, 0.8), rgba(34, 211, 238, 0.5));
+  background: linear-gradient(180deg, rgba(67, 56, 202, 0.8), rgba(99, 102, 241, 0.5));
 }
 
 /* ─── Section Scroll Offset ─────────────────────────────────────────── */
@@ -271,23 +235,23 @@ button {
 .section-divider {
   width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  background: linear-gradient(90deg, #4338ca, #6366f1);
   border-radius: 99px;
   margin: 0 auto;
 }
 
 /* ─── Active Nav Pill ───────────────────────────────────────────────── */
 .nav-active {
-  background: rgba(99, 102, 241, 0.14) !important;
-  color: #818cf8 !important;
-  border-color: rgba(99, 102, 241, 0.3) !important;
+  background: rgba(67, 56, 202, 0.08) !important;
+  color: var(--color-primary) !important;
+  border-color: rgba(67, 56, 202, 0.2) !important;
 }
 
 /* ─── Page Loader ───────────────────────────────────────────────────── */
 .page-loader {
   position: fixed;
   inset: 0;
-  background: #07090f;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,7 +262,7 @@ button {
   font-family: var(--font-display);
   font-size: 4rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  background: linear-gradient(135deg, #4338ca, #6366f1);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -330,7 +294,7 @@ button {
   left: -75%;
   width: 50%;
   height: 200%;
-  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
   transform: skewX(-20deg);
   animation: shine-sweep 7s ease-in-out infinite;
 }
@@ -366,7 +330,7 @@ textarea:focus {
   left: 0;
   width: 0;
   height: 1px;
-  background: #6366f1;
+  background: var(--color-primary);
   transition: width 0.3s ease;
 }
 
