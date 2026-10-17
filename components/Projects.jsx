@@ -10,6 +10,23 @@ import { cn } from "../src/utils/cn";
    See bottom of file for screenshot guidance. */
 const projects = [
   {
+    id: "grvmd",
+    title: "GRVMD Clothing Store",
+    category: "Web",
+    summary:
+      "Live e-commerce store for a premium clothing brand: a custom WooCommerce theme covering shop, collections, wishlist, cart, checkout, and customer accounts.",
+    metrics: [
+      { value: "Live", label: "In production" },
+      { value: "20+", label: "Custom WooCommerce templates" },
+      { value: "End-to-end", label: "Shop to checkout" },
+    ],
+    tags: ["WordPress", "WooCommerce", "PHP", "JavaScript", "CSS"],
+    image: "Images/grvmd.png",
+    imageAlt: "GRVMD storefront new arrivals grid with four graphic tees and sweatshirts",
+    liveUrl: "https://grvmd.com",
+    featured: true,
+  },
+  {
     id: "football-prediction",
     title: "Football Match Prediction System",
     category: "ML & AI",
