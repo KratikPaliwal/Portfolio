@@ -59,13 +59,13 @@ function Experience() {
   const [activeTab, setActiveTab] = useState("work");
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20">
+    <div className="max-w-4xl mx-auto lg:px-6 lg:py-20">
       {/* Tab Switcher */}
-      <div className="flex justify-center mb-16">
+      <div className="flex justify-center mb-10 md:mb-16">
         <div className="inline-flex bg-zinc-50 border border-zinc-200 p-1 rounded-2xl">
           <button
             onClick={() => setActiveTab("work")}
-            className={`px-8 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === "work"
+            className={`min-h-11 lg:min-h-0 px-6 sm:px-8 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === "work"
               ? "bg-white text-zinc-900 shadow-sm border border-zinc-200"
               : "text-zinc-400 hover:text-zinc-600"
               }`}
@@ -74,7 +74,7 @@ function Experience() {
           </button>
           <button
             onClick={() => setActiveTab("achievements")}
-            className={`px-8 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === "achievements"
+            className={`min-h-11 lg:min-h-0 px-6 sm:px-8 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === "achievements"
               ? "bg-white text-zinc-900 shadow-sm border border-zinc-200"
               : "text-zinc-400 hover:text-zinc-600"
               }`}
@@ -87,7 +87,7 @@ function Experience() {
       {/* Timeline Wrapper */}
       <div className="relative">
         {/* Vertical Line Connector */}
-        <div className="absolute left-6 top-2 bottom-0 w-[1px] bg-zinc-200" />
+        <div className="absolute left-5 sm:left-6 top-2 bottom-0 w-[1px] bg-zinc-200" />
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -96,12 +96,12 @@ function Experience() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="space-y-12"
+            className="space-y-10 sm:space-y-12"
           >
             {(activeTab === "work" ? experiences : achievements).map((item, index) => (
-              <div key={index} className="relative pl-16 group">
+              <div key={index} className="relative pl-14 sm:pl-16 group">
                 {/* Circular Icon Container */}
-                <div className="absolute left-0 top-1 w-12 h-12 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-xl text-primary z-10 overflow-hidden shadow-sm group-hover:border-primary/40 transition-colors">
+                <div className="absolute left-0 top-1 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-lg sm:text-xl text-primary z-10 overflow-hidden shadow-sm group-hover:border-primary/40 transition-colors">
                   <div className="relative z-10 transition-transform duration-500 group-hover:scale-110">
                     {item.icon}
                   </div>
@@ -109,13 +109,13 @@ function Experience() {
 
                 {/* Content */}
                 <div>
-                  <span className="text-zinc-400 text-xs sm:text-sm font-medium tracking-wide">
+                  <span className="text-zinc-400 text-[13px] sm:text-sm font-medium tracking-wide">
                     {item.period}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mt-1">
                     {item.company}
                   </h3>
-                  <div className="flex items-center gap-2 mt-1">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1">
                     <p className="text-zinc-600 font-medium text-sm sm:text-base">
                       {item.role}
                     </p>
@@ -124,7 +124,7 @@ function Experience() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1 px-2 rounded-lg bg-zinc-50 border border-zinc-200 text-[10px] text-zinc-500 hover:text-primary hover:bg-zinc-100 transition-all flex items-center gap-1"
+                        className="relative py-1.5 px-2.5 sm:p-1 sm:px-2 rounded-lg bg-zinc-50 border border-zinc-200 text-[12px] sm:text-[10px] text-zinc-500 hover:text-primary hover:bg-zinc-100 active:bg-zinc-100 transition-all flex items-center gap-1 before:absolute before:-inset-3 lg:before:hidden"
                       >
                         <FiExternalLink /> Live
                       </a>
@@ -134,8 +134,8 @@ function Experience() {
                   {/* Description list */}
                   <ul className="mt-4 space-y-3">
                     {item.description.map((bullet, i) => (
-                      <li key={i} className="flex gap-3 text-sm sm:text-base text-zinc-500 leading-relaxed font-light">
-                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0" />
+                      <li key={i} className="flex gap-3 text-base text-zinc-500 leading-relaxed font-light">
+                        <span className="mt-2.5 sm:mt-2 w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0" />
                         {bullet}
                       </li>
                     ))}

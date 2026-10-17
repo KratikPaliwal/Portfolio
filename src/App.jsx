@@ -5,66 +5,69 @@ import Experience from '../components/Experience'
 import Projects from '../components/Projects'
 import Connect from '../components/Connect'
 import { FiArrowUp } from 'react-icons/fi'
+import { MotionConfig } from 'framer-motion'
 
 function App() {
   return (
-    <div className="min-h-screen bg-mesh selection:bg-indigo-600/15 selection:text-indigo-900">
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen bg-mesh selection:bg-indigo-600/15 selection:text-indigo-900">
 
-      <Header />
+        <Header />
 
-      <main className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 space-y-20 md:space-y-32 mb-20 md:mb-32">
-        <section id="about" className="min-h-[85vh] flex items-center justify-center pt-20">
-          <About />
-        </section>
+        <main className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24 lg:space-y-32 mb-16 md:mb-24 lg:mb-32">
+          <section id="about" className="min-h-[100svh] md:min-h-[85vh] flex items-center justify-center pt-16 md:pt-20">
+            <About />
+          </section>
 
-        <section id="experience">
-          <Experience />
-        </section>
+          <section id="experience">
+            <Experience />
+          </section>
 
-        <section id="portfolio">
-          <Tech />
-        </section>
+          <section id="portfolio">
+            <Tech />
+          </section>
 
-        <section id="projects">
-          <Projects />
-        </section>
+          <section id="projects">
+            <Projects />
+          </section>
 
-        <section id="connect">
-          <Connect />
-        </section>
-      </main>
+          <section id="connect">
+            <Connect />
+          </section>
+        </main>
 
-      <footer className="relative z-10 py-10 md:py-12 text-center text-zinc-500 text-sm border-t border-zinc-200 bg-white/80 backdrop-blur-xl">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-5">
-          <p>© {new Date().getFullYear()} <span className="text-zinc-900 font-semibold">Kratik Paliwal</span></p>
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/KratikPaliwal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-700 transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/kratikpaliwal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-700 transition-colors"
-            >
-              LinkedIn
-            </a>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              aria-label="Back to top"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-zinc-300 bg-white text-zinc-600 text-xs font-semibold hover:border-zinc-400 hover:text-zinc-900 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              <FiArrowUp size={13} /> Back to top
-            </button>
+        <footer className="relative z-10 py-8 md:py-12 text-center text-zinc-500 text-sm border-t border-zinc-200 bg-white/80 backdrop-blur-xl">
+          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-5">
+            <p>© {new Date().getFullYear()} <span className="text-zinc-900 font-semibold">Kratik Paliwal</span></p>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              <a
+                href="https://github.com/KratikPaliwal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-11 lg:min-h-0 hover:text-indigo-700 transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/kratikpaliwal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-11 lg:min-h-0 hover:text-indigo-700 transition-colors"
+              >
+                LinkedIn
+              </a>
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                aria-label="Back to top"
+                className="inline-flex items-center gap-1.5 min-h-11 lg:min-h-0 px-4 md:px-3.5 py-2 rounded-full border border-zinc-300 bg-white text-zinc-600 text-xs font-semibold hover:border-zinc-400 hover:text-zinc-900 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                <FiArrowUp size={13} /> Back to top
+              </button>
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </MotionConfig>
   )
 }
 

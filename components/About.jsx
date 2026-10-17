@@ -20,7 +20,7 @@ function About() {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 w-full max-w-6xl py-6 lg:py-10">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-10 lg:gap-16 w-full max-w-6xl py-4 sm:py-6 lg:py-10">
 
       {/* ── Left: Text Content ─────────────────────────────── */}
       <motion.div
@@ -34,7 +34,7 @@ function About() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-50 border border-zinc-200 text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-6"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-50 border border-zinc-200 text-zinc-500 text-[11px] sm:text-[10px] font-bold uppercase tracking-widest mb-4 sm:mb-6"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -44,12 +44,12 @@ function About() {
         </motion.div>
 
         {/* Name */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight tracking-tight text-zinc-900">
+        <h1 className="text-[length:clamp(2.125rem,8vw+0.5rem,3rem)] md:text-6xl font-black mb-3 sm:mb-4 leading-tight tracking-tight text-zinc-900">
           Hi, I'm Kratik
         </h1>
 
         {/* Animated subtitle */}
-        <div className="h-16 sm:h-20 mb-6 overflow-hidden flex flex-col items-center lg:items-start justify-center">
+        <div className="h-14 sm:h-20 mb-4 sm:mb-6 overflow-hidden flex flex-col items-center lg:items-start justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={titles[index].text}
@@ -59,10 +59,10 @@ function About() {
               transition={{ duration: 0.5, ease: "circOut" }}
               className="flex items-center gap-3"
             >
-              <div className="p-2.5 sm:p-3 rounded-2xl bg-zinc-50 border border-zinc-200 text-xl sm:text-2xl shrink-0">
+              <div className="p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-zinc-50 border border-zinc-200 text-lg sm:text-2xl shrink-0">
                 {titles[index].icon}
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-zinc-700">
+              <h2 className="text-[length:clamp(1.125rem,4vw+0.4rem,1.5rem)] sm:text-2xl md:text-4xl font-bold text-zinc-700">
                 {titles[index].text}
               </h2>
             </motion.div>
@@ -70,17 +70,17 @@ function About() {
         </div>
 
         {/* Bio */}
-        <p className="max-w-xl text-zinc-500 text-sm sm:text-base md:text-lg mb-8 leading-relaxed mx-auto lg:mx-0 px-2 lg:px-0">
+        <p className="max-w-xl text-zinc-500 text-base md:text-lg mb-6 sm:mb-8 leading-relaxed mx-auto lg:mx-0 px-2 lg:px-0">
           I build <span className="text-zinc-900 font-medium">web apps</span> and <span className="text-zinc-900 font-medium">ML systems</span> that are fast, clean, and actually useful.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 items-center">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-3 items-center">
           <motion.a
             href="#projects"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-zinc-900 text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-zinc-800 transition-all btn-glow"
+            className="flex-[1_1_9rem] sm:flex-initial px-5 sm:px-7 py-3.5 rounded-full bg-zinc-900 text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-zinc-800 transition-all btn-glow"
           >
             My Work <FiArrowRight />
           </motion.a>
@@ -90,16 +90,17 @@ function About() {
             download="Kratik_Paliwal_Resume.pdf"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-primary/30 bg-primary/5 text-primary font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/10 hover:border-primary/50 transition-all"
+            className="flex-[1_1_9rem] sm:flex-initial px-5 sm:px-7 py-3.5 rounded-full border border-primary/30 bg-primary/5 text-primary font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/10 hover:border-primary/50 transition-all"
           >
             <FiDownload className="text-base" />
             Download CV
           </motion.a>
 
           {/* Social icons */}
-          <div className="flex gap-3">
+          <div className="flex justify-center gap-3 w-full sm:w-auto">
             <a
               href="https://github.com/KratikPaliwal"
+              aria-label="GitHub"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3.5 rounded-full glass hover:bg-zinc-900/5 hover:text-zinc-900 text-zinc-600 transition-all"
@@ -108,6 +109,7 @@ function About() {
             </a>
             <a
               href="https://www.linkedin.com/in/kratikpaliwal/"
+              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3.5 rounded-full glass hover:bg-zinc-900/5 hover:text-zinc-900 text-zinc-600 transition-all"
@@ -116,6 +118,7 @@ function About() {
             </a>
             <a
               href="mailto:kratikpaliwal1@gmail.com"
+              aria-label="Email"
               className="p-3.5 rounded-full glass hover:bg-zinc-900/5 hover:text-zinc-900 text-zinc-600 transition-all"
             >
               <FiMail className="text-lg" />
@@ -132,10 +135,12 @@ function About() {
         className="relative group shrink-0 order-first lg:order-last"
       >
         <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[3rem] blur-3xl opacity-[0.07] group-hover:opacity-[0.14] transition-opacity" />
-        <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-zinc-200 p-2 sm:p-2.5 bg-white shadow-xl shadow-zinc-900/5">
+        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[3rem] border border-zinc-200 p-2 sm:p-2.5 bg-white shadow-xl shadow-zinc-900/5">
           <img
             src="Images/profile.jpeg"
-            className="w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-[2rem] sm:rounded-[2.2rem] grayscale-[15%] group-hover:grayscale-0 transition-all duration-700"
+            srcSet="Images/profile-480.webp 480w, Images/profile-960.webp 960w"
+            sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, (min-width: 640px) 256px, 176px"
+            className="size-[clamp(8.5rem,40vw,11rem)] sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-[1.5rem] sm:rounded-[2.2rem] grayscale-[15%] group-hover:grayscale-0 transition-all duration-700"
             alt="Kratik Paliwal"
             loading="eager"
             decoding="async"

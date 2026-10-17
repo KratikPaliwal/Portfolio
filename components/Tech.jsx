@@ -35,41 +35,41 @@ const item = {
 
 function Tech() {
   return (
-    <div className="max-w-5xl mx-auto px-4">
+    <div className="max-w-5xl mx-auto md:px-4">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        className="text-center mb-8 md:mb-14"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-3 text-zinc-900">
+        <h2 className="text-[length:clamp(1.75rem,5vw+0.75rem,2.25rem)] md:text-5xl font-bold mb-3 text-zinc-900">
           My Stack
         </h2>
-        <p className="text-zinc-500 max-w-sm mx-auto text-sm">
+        <p className="text-zinc-500 max-w-sm mx-auto text-base md:text-sm text-balance">
           Tools I use to build things that actually work.
         </p>
       </motion.div>
 
-      {/* Responsive grid: 3 cols mobile, 4 cols tablet, 7 cols desktop (2 rows × 14 cards) */}
+      {/* Wrapping chips on phones, 7-col tile grid from tablet up (2 rows × 14 cards) */}
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4"
+        className="flex flex-wrap justify-center gap-2 md:grid md:grid-cols-7 md:gap-4"
       >
         {techStack.map((tech, index) => (
           <motion.div
             key={index}
             variants={item}
             whileHover={{ y: -5, scale: 1.06 }}
-            className="tech-card group rounded-2xl py-6 px-3 flex flex-col items-center justify-center gap-3 cursor-default"
+            className="tech-card group rounded-full md:rounded-2xl py-2 pl-3 pr-4 md:py-6 md:px-3 flex md:flex-col items-center justify-center gap-2 md:gap-3 cursor-default"
             style={{ "--card-glow": `${tech.color}33` }}
           >
             {/* Icon */}
             <div
-              className="text-4xl transition-all duration-300 group-hover:scale-110"
+              className="text-lg md:text-4xl transition-all duration-300 group-hover:scale-110"
               style={{ color: tech.color }}
             >
               {tech.icon}
@@ -77,7 +77,7 @@ function Tech() {
 
             {/* Label */}
             <p
-              className="text-[10px] font-semibold text-zinc-400 group-hover:text-zinc-600 transition-colors tracking-wider text-center"
+              className="text-[13px] md:text-[10px] font-semibold text-zinc-400 max-md:text-zinc-600 group-hover:text-zinc-600 transition-colors tracking-wide md:tracking-wider text-center"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               {tech.label}

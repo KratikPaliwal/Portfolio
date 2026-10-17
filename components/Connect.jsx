@@ -43,7 +43,7 @@ function ContactRow({ icon, label, value, href, download }) {
       target={download ? undefined : "_blank"}
       rel={download ? undefined : "noopener noreferrer"}
       download={download}
-      className="group flex items-center gap-4 py-3.5 px-2 -mx-2 rounded-xl hover:bg-zinc-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="group flex items-center gap-3 sm:gap-4 py-3.5 px-2 -mx-2 rounded-xl hover:bg-zinc-50 active:bg-zinc-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       <div className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
         {icon}
@@ -181,15 +181,15 @@ function Connect() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-32">
+    <div className="max-w-6xl mx-auto lg:px-6 lg:py-32">
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="mb-10 md:mb-14"
+        className="mb-8 md:mb-14"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-3">
+        <h2 className="text-[length:clamp(1.75rem,5vw+0.75rem,2.25rem)] md:text-5xl font-bold tracking-tight text-zinc-900 mb-3">
           Let's Start a Conversation
         </h2>
         <p className="text-zinc-500 max-w-xl text-base md:text-lg">
@@ -202,11 +202,11 @@ function Connect() {
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-stretch"
       >
         {/* ── Left: quick contact panel ─────────────────────────── */}
         <div className="lg:col-span-5 h-full">
-          <div className="glass-card rounded-[1.75rem] border border-zinc-200 bg-white p-6 sm:p-7 h-full flex flex-col">
+          <div className="glass-card rounded-[1.5rem] sm:rounded-[1.75rem] border border-zinc-200 bg-white p-5 sm:p-7 h-full flex flex-col">
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold mb-6">
               <span className="relative flex h-2 w-2">
                 {!reduceMotion && (
@@ -218,13 +218,13 @@ function Connect() {
             </div>
 
             {/* Email row: mailto link + explicit copy button */}
-            <div className="flex items-center gap-4 py-3.5 px-2 -mx-2 rounded-xl hover:bg-zinc-50 transition-colors">
+            <div className="flex items-center gap-3 sm:gap-4 py-3.5 px-2 -mx-2 rounded-xl hover:bg-zinc-50 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center shrink-0">
                 <FiMail size={18} />
               </div>
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="min-w-0 flex-1 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="min-w-0 flex-1 min-h-11 lg:min-h-0 flex flex-col justify-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 <div className="text-sm font-semibold text-zinc-900">Email</div>
                 <div className="text-sm text-zinc-500 truncate">{contactInfo.email}</div>
@@ -234,14 +234,14 @@ function Connect() {
                 onClick={handleCopyEmail}
                 aria-label="Copy email address"
                 className={cn(
-                  "shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                  "shrink-0 inline-flex items-center justify-center gap-1.5 min-w-11 min-h-11 lg:min-w-0 lg:min-h-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
                   copied
                     ? "bg-emerald-50 border-emerald-200 text-emerald-700"
                     : "bg-white border-zinc-300 text-zinc-600 hover:border-zinc-400 hover:text-zinc-900"
                 )}
               >
                 {copied ? <FiCheck size={13} /> : <FiCopy size={13} />}
-                {copied ? "Copied" : "Copy"}
+                <span className="hidden min-[400px]:inline">{copied ? "Copied" : "Copy"}</span>
               </button>
               <span aria-live="polite" className="sr-only">
                 {copied ? "Email address copied to clipboard" : ""}
@@ -270,7 +270,7 @@ function Connect() {
 
             <div className="h-px bg-zinc-100 my-4" />
 
-            <div className="flex items-start gap-4 py-1 px-2 -mx-2">
+            <div className="flex items-start gap-3 sm:gap-4 py-1 px-2 -mx-2">
               <div className="w-10 h-10 rounded-xl bg-primary/8 text-primary flex items-center justify-center shrink-0">
                 <FiMapPin size={18} />
               </div>
@@ -292,7 +292,7 @@ function Connect() {
 
         {/* ── Right: form card ──────────────────────────────────── */}
         <div className="lg:col-span-7 h-full">
-          <div className="bg-white p-6 sm:p-8 md:p-10 rounded-[1.75rem] border border-zinc-200 shadow-sm h-full flex flex-col">
+          <div className="bg-white p-5 sm:p-8 md:p-10 rounded-[1.5rem] sm:rounded-[1.75rem] border border-zinc-200 shadow-sm h-full flex flex-col">
             {status === "success" ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center py-10">
                 <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5">
@@ -346,7 +346,7 @@ function Connect() {
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-zinc-700 mb-2">
                       Full name
@@ -357,7 +357,7 @@ function Connect() {
                       type="text"
                       autoComplete="name"
                       className={cn(
-                        "w-full min-h-11 px-4 py-3 rounded-xl border bg-white text-zinc-900 text-sm transition-all placeholder:text-zinc-400 focus:outline-none focus:ring-4 focus:ring-primary/10",
+                        "w-full min-h-11 px-4 py-3 rounded-xl border bg-white text-zinc-900 text-base lg:text-sm transition-all placeholder:text-zinc-400 focus:outline-none focus:ring-4 focus:ring-primary/10",
                         errors.name ? "border-red-400 focus:border-red-400" : "border-zinc-500 focus:border-primary"
                       )}
                       value={name}
@@ -380,7 +380,7 @@ function Connect() {
                       type="email"
                       autoComplete="email"
                       className={cn(
-                        "w-full min-h-11 px-4 py-3 rounded-xl border bg-white text-zinc-900 text-sm transition-all placeholder:text-zinc-400 focus:outline-none focus:ring-4 focus:ring-primary/10",
+                        "w-full min-h-11 px-4 py-3 rounded-xl border bg-white text-zinc-900 text-base lg:text-sm transition-all placeholder:text-zinc-400 focus:outline-none focus:ring-4 focus:ring-primary/10",
                         errors.email ? "border-red-400 focus:border-red-400" : "border-zinc-500 focus:border-primary"
                       )}
                       value={email}
@@ -398,7 +398,7 @@ function Connect() {
                   <span className="block text-sm font-medium text-zinc-700 mb-2">
                     What's this about? <span className="text-zinc-400 font-normal">(optional)</span>
                   </span>
-                  <div role="radiogroup" aria-label="What's this about?" className="flex flex-wrap gap-2">
+                  <div role="radiogroup" aria-label="What's this about?" className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                     {topicOptions.map((opt, i) => (
                       <button
                         key={opt}
@@ -410,7 +410,7 @@ function Connect() {
                         onClick={() => setTopic(opt)}
                         onKeyDown={(e) => handleChipKeyDown(e, i)}
                         className={cn(
-                          "px-3.5 py-2 rounded-full text-xs font-semibold border transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                          "min-h-11 lg:min-h-0 px-2 sm:px-4 lg:px-3.5 py-2 rounded-full text-[13px] sm:text-sm lg:text-xs font-semibold border transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
                           topic === opt
                             ? "bg-primary/8 text-primary border-primary/30"
                             : "bg-white text-zinc-600 border-zinc-300 hover:border-zinc-400 hover:text-zinc-900"
@@ -436,7 +436,7 @@ function Connect() {
                     rows={5}
                     maxLength={MAX_MESSAGE_LENGTH}
                     className={cn(
-                      "w-full px-4 py-3 rounded-xl border bg-white text-zinc-900 text-sm transition-all resize-none placeholder:text-zinc-400 focus:outline-none focus:ring-4 focus:ring-primary/10",
+                      "w-full px-4 py-3 rounded-xl border bg-white text-zinc-900 text-base lg:text-sm transition-all resize-none placeholder:text-zinc-400 focus:outline-none focus:ring-4 focus:ring-primary/10",
                       errors.message ? "border-red-400 focus:border-red-400" : "border-zinc-500 focus:border-primary"
                     )}
                     value={message}

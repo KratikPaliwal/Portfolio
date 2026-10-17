@@ -76,6 +76,7 @@ const projects = [
     tags: ["Flutter", "Firebase", "Real-time", "Cloud Storage"],
     credit: "Supervised by Dr. Venkatadri Marriboyina, NMIMS University",
     image: "Images/tradeTwice.png",
+    imageWidths: [640, 930],
     imageAlt: "Trade Twice marketplace app login and listing screens",
     liveUrl: "https://github.com/KratikPaliwal/Trade_Twice",
     githubUrl: "https://github.com/KratikPaliwal/Trade_Twice",
@@ -119,12 +120,18 @@ const projects = [
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
+/* Resized WebP copies sit next to each original as <name>-<width>.webp.
+   `sizes` values are kept >= the rendered frame width so the image still
+   fills its frame exactly as the full-size PNG did. */
+const webpSrcSet = (src, widths = [640, 1280]) =>
+  widths.map((w) => `${src.replace(/\.\w+$/, "")}-${w}.webp ${w}w`).join(", ");
+
 /* ─── Shared bits ──────────────────────────────────────────────────── */
 function Tag({ label, accent }) {
   return (
     <span
       className={cn(
-        "px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider border whitespace-nowrap",
+        "px-2.5 py-1 rounded-md text-[11px] lg:text-[10px] font-semibold uppercase tracking-wider border whitespace-nowrap",
         accent
           ? "bg-primary/8 text-primary border-primary/25"
           : "bg-zinc-100 text-zinc-600 border-zinc-200"
@@ -158,14 +165,14 @@ function Metric({ value, label }) {
       >
         {value}
       </div>
-      <div className="text-[11px] sm:text-xs text-zinc-500 mt-0.5">{label}</div>
+      <div className="text-xs text-zinc-500 mt-0.5">{label}</div>
     </div>
   );
 }
 
 /* Screenshot frame: object-contain on a dark backdrop so no image is ever
    cropped, regardless of its aspect ratio (portrait app shots included). */
-function Screenshot({ image, alt, className }) {
+function Screenshot({ image, imageWidths, alt, className }) {
   return (
     <div
       className={cn(
@@ -178,9 +185,11 @@ function Screenshot({ image, alt, className }) {
         <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
         <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
       </div>
-      <div className="aspect-[16/10] flex items-center justify-center p-4 sm:p-6 bg-zinc-950">
+      <div className="aspect-[16/10] flex items-center justify-center p-3 sm:p-6 bg-zinc-950">
         <img
           src={image}
+          srcSet={webpSrcSet(image, imageWidths)}
+          sizes="(min-width: 1024px) 640px, 100vw"
           alt={alt}
           className="max-w-full max-h-full object-contain rounded"
           loading="lazy"
@@ -203,7 +212,9 @@ function ActionLinks({ project, size = "md" }) {
           aria-label={`View ${project.title} project`}
           className={cn(
             "group inline-flex items-center justify-center gap-2 rounded-full font-bold text-white bg-zinc-900 hover:bg-zinc-800 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
-            isSm ? "flex-1 py-2 text-xs" : "px-5 py-2.5 text-sm"
+            isSm
+              ? "flex-1 min-h-11 lg:min-h-0 py-2 text-sm lg:text-xs"
+              : "flex-1 sm:flex-initial min-h-11 lg:min-h-0 px-5 py-2.5 text-sm"
           )}
         >
           View Project
@@ -218,7 +229,9 @@ function ActionLinks({ project, size = "md" }) {
           aria-label={`View ${project.title} on GitHub`}
           className={cn(
             "inline-flex items-center justify-center gap-1.5 rounded-full font-semibold text-zinc-700 border border-zinc-300 bg-white hover:border-zinc-400 hover:bg-zinc-50 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
-            isSm ? "px-3 py-2 text-xs" : "px-5 py-2.5 text-sm"
+            isSm
+              ? "min-w-11 min-h-11 lg:min-w-0 lg:min-h-0 px-3 py-2 text-xs"
+              : "flex-1 sm:flex-initial min-h-11 lg:min-h-0 px-5 py-2.5 text-sm"
           )}
         >
           <FiGithub size={isSm ? 13 : 15} />
@@ -241,10 +254,10 @@ function FeaturedProject({ project, index, total }) {
       exit={reduceMotion ? undefined : { opacity: 0, y: -16 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.4, ease: "easeOut", delay: Math.min(index, 3) * 0.06 }}
-      className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-center py-10 lg:py-14 border-b border-zinc-200 last:border-b-0"
+      className="grid lg:grid-cols-[0.9fr_1.1fr] gap-5 sm:gap-8 lg:gap-14 items-center py-8 sm:py-10 lg:py-14 border-b border-zinc-200 last:border-b-0"
     >
       <div className="order-2 lg:order-1">
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-3 sm:mb-4">
           <span
             className="text-[11px] font-semibold tracking-wider text-zinc-400"
             style={{ fontFamily: "var(--font-mono)" }}
@@ -257,9 +270,9 @@ function FeaturedProject({ project, index, total }) {
         <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900 mb-3 leading-snug">
           {project.title}
         </h3>
-        <p className="text-zinc-600 text-base leading-relaxed mb-7 max-w-md">{project.summary}</p>
+        <p className="text-zinc-600 text-base leading-relaxed mb-6 sm:mb-7 max-w-md">{project.summary}</p>
 
-        <div className="flex flex-wrap gap-x-8 gap-y-4 mb-7">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-6 sm:flex sm:flex-wrap sm:gap-x-8 sm:mb-7">
           {project.metrics.map((m) => (
             <Metric key={m.label} {...m} />
           ))}
@@ -279,7 +292,7 @@ function FeaturedProject({ project, index, total }) {
         whileHover={reduceMotion ? undefined : { y: -4, rotate: -0.4, scale: 1.015 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <Screenshot image={project.image} alt={project.imageAlt} />
+        <Screenshot image={project.image} imageWidths={project.imageWidths} alt={project.imageAlt} />
       </motion.div>
     </motion.article>
   );
@@ -303,6 +316,8 @@ function ProjectCard({ project, index }) {
       <div className="relative aspect-[16/10] bg-zinc-950 flex items-center justify-center p-3 overflow-hidden">
         <img
           src={project.image}
+          srcSet={webpSrcSet(project.image, project.imageWidths)}
+          sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
           alt={project.imageAlt}
           className="max-w-full max-h-full object-contain rounded transition-transform duration-300 group-hover:scale-[1.03]"
           loading="lazy"
@@ -317,8 +332,8 @@ function ProjectCard({ project, index }) {
         >
           {project.category}
         </span>
-        <h3 className="text-base font-bold text-zinc-900 mb-1.5 leading-snug">{project.title}</h3>
-        <p className="text-zinc-500 text-sm leading-relaxed mb-4 flex-1">{project.summary}</p>
+        <h3 className="text-lg lg:text-base font-bold text-zinc-900 mb-1.5 leading-snug">{project.title}</h3>
+        <p className="text-zinc-500 text-base lg:text-sm leading-relaxed mb-4 flex-1">{project.summary}</p>
 
         {metric && (
           <div className="mb-4 flex items-baseline gap-1.5">
@@ -353,14 +368,14 @@ export default function Projects() {
   const rest = filtered.filter((p) => !p.featured);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-32">
+    <div className="max-w-6xl mx-auto lg:px-6 lg:py-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-10 md:mb-14"
+        className="mb-6 md:mb-14"
       >
-        <div className="flex items-center justify-end mb-4">
+        <div className="flex items-center justify-end mb-2 md:mb-4">
           <span
             className="text-xs font-semibold text-zinc-400 tracking-wide"
             style={{ fontFamily: "var(--font-mono)" }}
@@ -368,16 +383,16 @@ export default function Projects() {
             {String(projects.length).padStart(2, "0")} projects
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-3">
+        <h2 className="text-[length:clamp(1.75rem,5vw+0.75rem,2.25rem)] md:text-5xl font-bold tracking-tight text-zinc-900 mb-3">
           Featured Projects
         </h2>
-        <p className="text-zinc-500 max-w-lg text-sm sm:text-base">
+        <p className="text-zinc-500 max-w-lg text-base">
           From ML research to production apps — a selection of what I've shipped.
         </p>
       </motion.div>
 
       {/* Filter chips */}
-      <div className="flex flex-wrap gap-2 mb-10 md:mb-14" role="group" aria-label="Filter projects by category">
+      <div className="flex flex-wrap gap-2 mb-4 md:mb-14" role="group" aria-label="Filter projects by category">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -385,7 +400,7 @@ export default function Projects() {
             onClick={() => setFilter(cat)}
             aria-pressed={filter === cat}
             className={cn(
-              "px-4 py-2 rounded-full text-sm font-semibold transition-all border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+              "min-h-11 lg:min-h-0 px-4 py-2 rounded-full text-sm font-semibold transition-all border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
               filter === cat
                 ? "bg-zinc-900 text-white border-zinc-900"
                 : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-300 hover:text-zinc-900"
@@ -415,7 +430,7 @@ export default function Projects() {
         <div
           className={cn(
             "grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6",
-            featured.length > 0 && "mt-10 md:mt-14"
+            featured.length > 0 && "mt-8 md:mt-14"
           )}
         >
           <AnimatePresence mode="popLayout" initial={false}>

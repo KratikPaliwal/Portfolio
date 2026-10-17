@@ -14,6 +14,8 @@
 
 /* ─── Base ─────────────────────────────────────────────────────────── */
 :root {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   font-family: var(--font-sans);
   line-height: 1.65;
   font-weight: 400;
@@ -62,12 +64,14 @@ body {
   transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.glass-card:hover {
-  border-color: rgba(67, 56, 202, 0.25);
-  transform: translateY(-4px);
-  box-shadow:
-    0 24px 48px -16px rgba(24, 24, 27, 0.12),
-    0 0 0 1px rgba(67, 56, 202, 0.05) inset;
+@media (hover: hover) {
+  .glass-card:hover {
+    border-color: rgba(67, 56, 202, 0.25);
+    transform: translateY(-4px);
+    box-shadow:
+      0 24px 48px -16px rgba(24, 24, 27, 0.12),
+      0 0 0 1px rgba(67, 56, 202, 0.05) inset;
+  }
 }
 
 /* ─── Tech Stack Card ───────────────────────────────────────────────── */
@@ -78,11 +82,13 @@ body {
   transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.tech-card:hover {
-  border-color: var(--card-glow, rgba(67, 56, 202, 0.3));
-  box-shadow:
-    0 20px 40px -20px var(--card-glow, rgba(67, 56, 202, 0.25)),
-    0 1px 2px rgba(24, 24, 27, 0.04);
+@media (hover: hover) {
+  .tech-card:hover {
+    border-color: var(--card-glow, rgba(67, 56, 202, 0.3));
+    box-shadow:
+      0 20px 40px -20px var(--card-glow, rgba(67, 56, 202, 0.25)),
+      0 1px 2px rgba(24, 24, 27, 0.04);
+  }
 }
 
 /* ─── Gradient Text ─────────────────────────────────────────────────── */
@@ -186,6 +192,13 @@ section {
   scroll-margin-top: 100px;
 }
 
+/* Mobile header is a 64px bar, so anchors need less offset */
+@media (max-width: 767px) {
+  section {
+    scroll-margin-top: 80px;
+  }
+}
+
 /* ─── Typography ────────────────────────────────────────────────────── */
 h1,
 h2,
@@ -226,9 +239,11 @@ button {
   border-radius: 50%;
 }
 
-.btn-glow:hover::before {
-  width: 320px;
-  height: 320px;
+@media (hover: hover) {
+  .btn-glow:hover::before {
+    width: 320px;
+    height: 320px;
+  }
 }
 
 /* ─── Section Divider ───────────────────────────────────────────────── */
@@ -334,6 +349,33 @@ textarea:focus {
   transition: width 0.3s ease;
 }
 
-.link-underline:hover::after {
-  width: 100%;
+@media (hover: hover) {
+  .link-underline:hover::after {
+    width: 100%;
+  }
+}
+
+/* ─── Mobile / Tablet (< 1024px) ────────────────────────────────────── */
+@media (max-width: 1023px) {
+
+  /* Cards are opaque white, so the blur only costs GPU time on phones */
+  .glass-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* ─── Reduced Motion ────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
